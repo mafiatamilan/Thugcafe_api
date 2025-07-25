@@ -6,9 +6,9 @@ services:
     region: oregon
     dockerfilePath: ./Dockerfile
     envVars:
-      - key: DEBUG
-        value: "0"
-      - key: SECRET_KEY
-        value: django-insecure-yyqo2&1na5x$r01h&nhifiz^6y8$a-$fgb(*$+(iihhb5$9msc
       - key: DATABASE_URL
         value: postgres://postgres:postgres@db:5432/thugcafe
+      - key: SECRET_KEY
+        value: django-insecure-yyqo2&1na5x$r01h&nhifiz^6y8$a-$fgb(*$+(iihhb5$9msc
+      - key: DEBUG
+        value: "False"
