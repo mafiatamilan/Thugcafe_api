@@ -1,14 +1,21 @@
 services:
   - type: web
-    name: thugcafe-api
+    name: thug-cafe
     env: docker
-    plan: free
     region: oregon
+    plan: free
     dockerfilePath: ./Dockerfile
     envVars:
-      - key: DATABASE_URL
-        value: postgres://postgres:postgres@db:5432/thugcafe
-      - key: SECRET_KEY
-        value: django-insecure-yyqo2&1na5x$r01h&nhifiz^6y8$a-$fgb(*$+(iihhb5$9msc
       - key: DEBUG
         value: "False"
+      - key: SECRET_KEY
+        value: your-secret-key-here
+      - key: DATABASE_URL
+        fromDatabase:
+          name: thug-cafe-db
+          property: connectionString
+
+databases:
+  - name: thug-cafe-db
+    databaseName: thugcafe
+    user: postgres
