@@ -77,6 +77,13 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
+        engine='django.db.backends.postgresql'  # 👈 required explicitly!
+    )
+}
+
 
 
 # Password validation
@@ -99,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
+# https://docs.djangoproject.com/en/5.2/topics/i18n/    
 
 LANGUAGE_CODE = 'en-us'
 
