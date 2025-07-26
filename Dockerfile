@@ -20,7 +20,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Start script to run on container startup
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
-CMD ["/start.sh"]
+CMD ["/entrypoint.sh"]
