@@ -136,6 +136,10 @@ CORS_ALLOWED_ORIGINS = [
     "https://yourdomain.com",
 ]
 
+
 REST_FRAMEWORK = {
     'DEFAULT_CHARSET': 'utf-8',
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    ),
 }
