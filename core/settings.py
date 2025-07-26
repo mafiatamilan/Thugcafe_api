@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'POS_APP',
     'rest_framework',
     'corsheaders',
+    'drf-yasg'
 ]
 
 MIDDLEWARE = [
