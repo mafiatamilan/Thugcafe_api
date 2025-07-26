@@ -1,15 +1,15 @@
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from rest_framework import permissions
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Thugcafe API",
+        title="ThugCafe API",
         default_version='v1',
-        description="API docs for Thugcafe",
-        contact=openapi.Contact(email="samplepos@gmail.com"),
+        description="API documentation",
+        contact=openapi.Contact(email="admin@thugcafe.com"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
@@ -17,10 +17,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls')),
-
-    # Swagger UI:
+    path('api/', include('POS_APP.urls')),
     path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    # Redoc:
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
