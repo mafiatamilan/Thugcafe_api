@@ -2,7 +2,8 @@
 
 # Wait for PostgreSQL
 echo "Waiting for PostgreSQL..."
-while ! nc -z db 5432; do
+while ! nc -z dpg-cn2fqtv1hbls73b42p90-a.oregon-postgres.render.com 5432; do
+
   sleep 1
 done
 echo "PostgreSQL is up."
