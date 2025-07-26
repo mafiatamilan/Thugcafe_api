@@ -20,8 +20,8 @@ echo "Creating superuser..."
 python manage.py shell <<EOF
 from django.contrib.auth import get_user_model
 User = get_user_model()
-if not User.objects.filter(email="samplepos").exists():
-    User.objects.create_superuser("samplepos", "samplepos@gmail.com", "pos@123")
+if not User.objects.filter(username="samplepos").exists():
+    User.objects.create_superuser("samplepos", email="", password="pos@123")
 EOF
 
 # Start Gunicorn server
