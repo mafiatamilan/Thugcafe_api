@@ -4,15 +4,24 @@ services:
   web:
     build: .
     container_name: thug_web
-    command: ["/bin/bash", "/app/entrypoint.sh"]
-    env_file:
-      - .env.production
+    command: gunicorn core.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/app
     ports:
       - "8000:8000"
-    volumes:
-      - static_volume:/app/staticfiles
-      - media_volume:/app/media
+    env_file:
+      - .env.production
+    
+  db:
+    image: postgres:16
+    container_name: thug_db
+    environment:
+      POSTGRES_DB: thugcafe
+      POSTGRES_USER:  samplepos
+      POSTGRES_PASSWORD: n1aAHkNF614L15qNwKtntM7SJIyQqzjL
+    aprrka:
+      restart: always
+      build: .    
+      depends_on:
+        - db
 
-volumes:
-  static_volume:
-  media_volume:
