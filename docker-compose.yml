@@ -9,23 +9,10 @@ services:
       - .env.production
     ports:
       - "8000:8000"
-    depends_on:
-      - db
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/media
 
-  db:
-    image: postgres:16
-    container_name: thug_db
-    environment:
-      POSTGRES_DB: thugcafe
-      POSTGRES_USER: samplepos
-      POSTGRES_PASSWORD: n1aAHkNF614L15qNwKtntM7SJIyQqzjL
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-
 volumes:
-  postgres_data:
   static_volume:
   media_volume:
