@@ -11,8 +11,8 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load environment variables
-SECRET_KEY = os.getenv('SECRET_KEY', 'your-default-secret-key')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-yyqo2&1na5x$r01h&nhifiz^6y8$a-$fgb(*$+(iihhb5$9msc')
+DEBUG = os.getenv('DEBUG', 'True')
 ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
 
 ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
@@ -73,13 +73,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 # Database
+DATABASE_URL = 'postgresql://samplepos:n1aAHkNF614L15qNwKtntM7SJIyQqzjL@dpg-d224spvgi27c73eidoeg-a.oregon-postgres.render.com/thugcafe'
 if ENVIRONMENT == "production":
     DATABASES = {
         'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
     }
 else:
     DATABASES = {
-        'default': dj_database_url.config()
+        'default': dj_database_url.config(default=DATABASE_URL)
     }
 
 # Password validation
