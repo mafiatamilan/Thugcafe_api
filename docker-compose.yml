@@ -18,7 +18,7 @@ services:
     environment:
       POSTGRES_DB: thugcafe
       POSTGRES_USER:  samplepos
-      POSTGRES_PASSWORD: n1aAHkNF614L15qNwKtntM7SJIyQqzjL
+      POSTGRES_PASSWORD: n1aAHkNF614L15qNwKtntM7SJIyQqzjLs
     aprrka:
       restart: always
       build: .    
